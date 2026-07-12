@@ -157,7 +157,47 @@ Jeden Abend.
 document.getElementById("startButton").onclick=function(){
 
 document.querySelector(".card").innerHTML=`
+const ja = document.getElementById("ja");
+const nein = document.getElementById("nein");
+const weiter = document.getElementById("weiter");
 
+let antwort = null;
+
+// Weiter erstmal deaktivieren
+weiter.disabled = true;
+weiter.style.opacity = "0.4";
+
+// JA
+ja.onclick = function(){
+
+antwort = true;
+
+ja.style.background = "#CFEFD8";
+ja.style.color = "#111";
+
+nein.style.background = "white";
+nein.style.color = "black";
+
+weiter.disabled = false;
+weiter.style.opacity = "1";
+
+}
+
+// NEIN
+nein.onclick = function(){
+
+antwort = false;
+
+nein.style.background = "#E8D8E8";
+nein.style.color = "#111";
+
+ja.style.background = "white";
+ja.style.color = "black";
+
+weiter.disabled = false;
+weiter.style.opacity = "1";
+
+}
 <div class="questionCounter">
 1 / 6
 </div>
