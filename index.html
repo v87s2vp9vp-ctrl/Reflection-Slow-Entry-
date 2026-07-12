@@ -15,119 +15,98 @@ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 
 body{
-
 background:#0F1115;
 color:white;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 min-height:100vh;
-
 padding:20px;
-
 }
 
 .card{
-
 width:100%;
 max-width:420px;
-
 background:#191C22;
-
 padding:25px;
-
 border-radius:24px;
-
 box-shadow:0 20px 40px rgba(0,0,0,.35);
-
 }
 
 h1{
-
 font-size:34px;
-
 margin-bottom:8px;
+}
 
+h2{
+font-size:34px;
+line-height:1.2;
+margin-bottom:30px;
 }
 
 .subtitle{
-
 opacity:.7;
-
 margin-bottom:30px;
-
 }
 
 button{
-
 width:100%;
-
 border:none;
-
 padding:18px;
-
 border-radius:18px;
-
 font-size:18px;
-
 font-weight:700;
-
 background:white;
-
 color:black;
-
 cursor:pointer;
-
+transition:.2s;
 }
 
 .goal{
-
 background:#11141A;
-
 border-radius:14px;
-
 padding:15px;
-
 margin-bottom:12px;
-
 border:1px solid #30343C;
-
 }
 
 input{
-
 width:100%;
-
 background:none;
-
 border:none;
-
 outline:none;
-
 color:white;
-
 font-size:17px;
+}
 
+textarea{
+width:100%;
+height:110px;
+background:#11141A;
+border:1px solid #30343C;
+border-radius:18px;
+padding:15px;
+font-size:16px;
+color:white;
+resize:none;
+outline:none;
 }
 
 .streak{
-
 font-size:52px;
-
 font-weight:700;
-
 margin-bottom:8px;
-
 }
 
 .small{
-
 opacity:.6;
-
 margin-bottom:25px;
+}
 
+.questionCounter{
+opacity:.5;
+font-size:15px;
+margin-bottom:12px;
 }
 
 </style>
@@ -146,9 +125,7 @@ margin-bottom:25px;
 Aktuelle Streak
 </div>
 
-<h1>
-Reflekt
-</h1>
+<h1>Reflekt</h1>
 
 <div class="subtitle">
 Minimalistische Selbstreflexion.
@@ -169,10 +146,8 @@ Jeden Abend.
 
 <br>
 
-<<button id="startButton">
-
+<button id="startButton">
 🌙 Abendroutine beginnen
-
 </button>
 
 </div>
@@ -183,30 +158,32 @@ document.getElementById("startButton").onclick=function(){
 
 document.querySelector(".card").innerHTML=`
 
-<h1>😊</h1>
+<div class="questionCounter">
+1 / 6
+</div>
 
-<h2>Hatte ich heute einen schönen Moment?</h2>
+<h2>
+Hatte ich heute einen schönen Moment?
+</h2>
 
-<br>
-
-<button>Ja</button>
+<button id="ja">
+Ja
+</button>
 
 <br><br>
 
-<button>Nein</button>
+<button id="nein">
+Nein
+</button>
 
 <br><br>
 
-<textarea
-placeholder="Etwas dazu schreiben (freiwillig)"
-style="width:100%;height:120px;border-radius:18px;padding:15px;background:#11141A;color:white;border:none;"></textarea>
+<textarea placeholder="(freiwillig)"></textarea>
 
 <br><br>
 
 <button id="weiter">
-
 Weiter →
-
 </button>
 
 `;
@@ -215,4 +192,5 @@ Weiter →
 
 </script>
 
+</body>
 </html>
