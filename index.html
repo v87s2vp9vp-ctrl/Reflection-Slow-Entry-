@@ -179,11 +179,37 @@ Jeden Abend.
 
 <script>
 
-document
-.getElementById("startButton")
-.onclick=function(){
+document.getElementById("startButton").onclick=function(){
 
-alert("😊 Frage 1\n\nHatte ich heute einen schönen Moment?");
+document.querySelector(".card").innerHTML=`
+
+<h1>😊</h1>
+
+<h2>Hatte ich heute einen schönen Moment?</h2>
+
+<br>
+
+<button>Ja</button>
+
+<br><br>
+
+<button>Nein</button>
+
+<br><br>
+
+<textarea
+placeholder="Etwas dazu schreiben (freiwillig)"
+style="width:100%;height:120px;border-radius:18px;padding:15px;background:#11141A;color:white;border:none;"></textarea>
+
+<br><br>
+
+<button id="weiter">
+
+Weiter →
+
+</button>
+
+`;
 
 };
 
