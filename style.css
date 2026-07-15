@@ -178,7 +178,7 @@ margin-bottom:14px;
 
 }
 
-..answer.yes.selected{
+.answer.yes.selected{
 
 background:#DDF5E4;
 
@@ -192,9 +192,11 @@ border:2px solid #B7E6C4;
 
 .answer.no.selected{
 
-background:#F4E6EF;
+background:#F2E7F1;
 
-color:#5F4655;
+color:#5B4455;
+
+border:2px solid #DFC7DB;
 
 }
 
