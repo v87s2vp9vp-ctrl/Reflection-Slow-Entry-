@@ -58,54 +58,62 @@ disabled>
 Weiter →
 
 </button>
+...
+`;
+
+const yesButton = document.querySelector(".yes");
+const noButton = document.querySelector(".no");
+const nextButton = document.querySelector(".nextButton");
 
 `;
 
-}
 const yesButton = document.querySelector(".yes");
 const noButton = document.querySelector(".no");
 const nextButton = document.querySelector(".nextButton");
 
 yesButton.onclick = function(){
 
-answers[currentQuestion] = true;
+    answers[currentQuestion] = true;
 
-yesButton.classList.add("selected");
-yesButton.classList.add("yes");
+    yesButton.classList.add("selected");
+    yesButton.classList.add("yes");
 
-noButton.classList.remove("selected");
+    noButton.classList.remove("selected");
+    noButton.classList.remove("no");
 
-nextButton.disabled = false;
+    nextButton.disabled = false;
 
 }
 
 noButton.onclick = function(){
 
-answers[currentQuestion] = false;
+    answers[currentQuestion] = false;
 
-noButton.classList.add("selected");
-noButton.classList.add("no");
+    noButton.classList.add("selected");
+    noButton.classList.add("no");
 
-yesButton.classList.remove("selected");
+    yesButton.classList.remove("selected");
+    yesButton.classList.remove("yes");
 
-nextButton.disabled = false;
+    nextButton.disabled = false;
 
 }
+
 nextButton.onclick = function(){
 
-currentQuestion++;
+    currentQuestion++;
 
-if(currentQuestion < questions.length){
+    if(currentQuestion < questions.length){
 
-showQuestion();
+        showQuestion();
 
-}else{
+    }else{
 
-card.innerHTML = `
+        card.innerHTML = `
 
 <div class="questionCount">
 
-Fertig 🎉
+Fertig
 
 </div>
 
@@ -127,6 +135,12 @@ Zur Startseite
 
 `;
 
+    }
+
 }
 
 }
+
+}   ← Ende von showQuestion()
+`;
+
