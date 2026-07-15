@@ -37,3 +37,20 @@ document.getElementById("goal3").addEventListener("input", saveGoals);
 
 // Beim Öffnen laden
 loadGoals();
+// -------------------------------
+// Reflexion speichern
+// -------------------------------
+
+function saveReflection(day){
+
+    let reflections =
+    JSON.parse(localStorage.getItem("reflections")) || [];
+
+    reflections.push(day);
+
+    localStorage.setItem(
+        "reflections",
+        JSON.stringify(reflections)
+    );
+
+}
