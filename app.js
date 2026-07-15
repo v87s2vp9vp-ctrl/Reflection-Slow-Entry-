@@ -62,3 +62,71 @@ Weiter →
 `;
 
 }
+const yesButton = document.querySelector(".yes");
+const noButton = document.querySelector(".no");
+const nextButton = document.querySelector(".nextButton");
+
+yesButton.onclick = function(){
+
+answers[currentQuestion] = true;
+
+yesButton.classList.add("selected");
+yesButton.classList.add("yes");
+
+noButton.classList.remove("selected");
+
+nextButton.disabled = false;
+
+}
+
+noButton.onclick = function(){
+
+answers[currentQuestion] = false;
+
+noButton.classList.add("selected");
+noButton.classList.add("no");
+
+yesButton.classList.remove("selected");
+
+nextButton.disabled = false;
+
+}
+nextButton.onclick = function(){
+
+currentQuestion++;
+
+if(currentQuestion < questions.length){
+
+showQuestion();
+
+}else{
+
+card.innerHTML = `
+
+<div class="questionCount">
+
+Fertig 🎉
+
+</div>
+
+<div class="question">
+
+Gut gemacht.
+
+<br><br>
+
+Du hast dir heute Zeit für dich genommen.
+
+</div>
+
+<button onclick="location.reload()">
+
+Zur Startseite
+
+</button>
+
+`;
+
+}
+
+}
