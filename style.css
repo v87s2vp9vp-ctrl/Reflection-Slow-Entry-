@@ -178,11 +178,15 @@ margin-bottom:14px;
 
 }
 
-.answer.yes.selected{
+..answer.yes.selected{
 
-background:#DFF5E8;
+background:#DDF5E4;
 
 color:#24412D;
+
+border:2px solid #B7E6C4;
+
+}
 
 }
 
