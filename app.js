@@ -1,6 +1,7 @@
-// ----------------------------
-// Reflekt Foundation
-// ----------------------------
+// ===================================
+// REFLEKT FOUNDATION
+// app.js
+// ===================================
 
 let currentQuestion = 0;
 let answers = [];
@@ -8,139 +9,67 @@ let answers = [];
 const card = document.getElementById("card");
 const startButton = document.getElementById("startButton");
 
+// -------------------------------
+// App starten
+// -------------------------------
+
 startButton.addEventListener("click", () => {
 
-showQuestion();
+    currentQuestion = 0;
+    answers = [];
+
+    showQuestion();
 
 });
+
+// -------------------------------
+// Frage anzeigen
+// -------------------------------
+
 function showQuestion(){
 
-const question = questions[currentQuestion];
+    const question = questions[currentQuestion];
 
-card.innerHTML = `
+    card.innerHTML = `
 
-<div class="questionCount">
+        <div class="questionCount">
 
-${currentQuestion+1} von ${questions.length} Fragen
+            ${currentQuestion + 1} von ${questions.length} Fragen
 
-</div>
+        </div>
 
-<div class="question">
+        <div class="question">
 
-${question.question}
+            ${question.question}
 
-</div>
+        </div>
 
-<button class="answer yes">
+        <button class="answer yes">
 
-Ja
+            Ja
 
-</button>
+        </button>
 
-<br><br>
+        <br><br>
 
-<button class="answer no">
+        <button class="answer no">
 
-Nein
+            Nein
 
-</button>
+        </button>
 
-<textarea
-placeholder="(freiwillig)">
-</textarea>
+        <textarea placeholder="(freiwillig)"></textarea>
 
-<br><br>
+        <br><br>
 
-<button
-class="nextButton"
-disabled>
+        <button class="nextButton" disabled>
 
-Weiter →
+            Weiter →
 
-</button>
-...
-`;
+        </button>
 
-const yesButton = document.querySelector(".yes");
-const noButton = document.querySelector(".no");
-const nextButton = document.querySelector(".nextButton");
+    `;
 
-`;
-
-const yesButton = document.querySelector(".yes");
-const noButton = document.querySelector(".no");
-const nextButton = document.querySelector(".nextButton");
-
-yesButton.onclick = function(){
-
-    answers[currentQuestion] = true;
-
-    yesButton.classList.add("selected");
-    yesButton.classList.add("yes");
-
-    noButton.classList.remove("selected");
-    noButton.classList.remove("no");
-
-    nextButton.disabled = false;
+    setupButtons();
 
 }
-
-noButton.onclick = function(){
-
-    answers[currentQuestion] = false;
-
-    noButton.classList.add("selected");
-    noButton.classList.add("no");
-
-    yesButton.classList.remove("selected");
-    yesButton.classList.remove("yes");
-
-    nextButton.disabled = false;
-
-}
-
-nextButton.onclick = function(){
-
-    currentQuestion++;
-
-    if(currentQuestion < questions.length){
-
-        showQuestion();
-
-    }else{
-
-        card.innerHTML = `
-
-<div class="questionCount">
-
-Fertig
-
-</div>
-
-<div class="question">
-
-Gut gemacht.
-
-<br><br>
-
-Du hast dir heute Zeit für dich genommen.
-
-</div>
-
-<button onclick="location.reload()">
-
-Zur Startseite
-
-</button>
-
-`;
-
-    }
-
-}
-
-}
-
-}   ← Ende von showQuestion()
-`;
-
