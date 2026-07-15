@@ -1,236 +1,64 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="de">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Reflekt</title>
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-}
-
-body{
-background:#0F1115;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.card{
-width:100%;
-max-width:420px;
-background:#191C22;
-padding:25px;
-border-radius:24px;
-box-shadow:0 20px 40px rgba(0,0,0,.35);
-}
-
-h1{
-font-size:34px;
-margin-bottom:8px;
-}
-
-h2{
-font-size:34px;
-line-height:1.2;
-margin-bottom:30px;
-}
-
-.subtitle{
-opacity:.7;
-margin-bottom:30px;
-}
-
-button{
-width:100%;
-border:none;
-padding:18px;
-border-radius:18px;
-font-size:18px;
-font-weight:700;
-background:white;
-color:black;
-cursor:pointer;
-transition:.2s;
-}
-
-.goal{
-background:#11141A;
-border-radius:14px;
-padding:15px;
-margin-bottom:12px;
-border:1px solid #30343C;
-}
-
-input{
-width:100%;
-background:none;
-border:none;
-outline:none;
-color:white;
-font-size:17px;
-}
-
-textarea{
-width:100%;
-height:110px;
-background:#11141A;
-border:1px solid #30343C;
-border-radius:18px;
-padding:15px;
-font-size:16px;
-color:white;
-resize:none;
-outline:none;
-}
-
-.streak{
-font-size:52px;
-font-weight:700;
-margin-bottom:8px;
-}
-
-.small{
-opacity:.6;
-margin-bottom:25px;
-}
-
-.questionCounter{
-opacity:.5;
-font-size:15px;
-margin-bottom:12px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="card">
+<div id="app">
 
-<div class="streak">
-🔥 0
+    <div class="card" id="card">
+
+        <div class="streak">
+            🔥 <span id="streak">0</span>
+        </div>
+
+        <div class="small">
+            Aktuelle Streak
+        </div>
+
+        <h1>🌙 Reflekt</h1>
+
+        <p class="subtitle">
+            Minimalistische Selbstreflexion.<br>
+            Jeden Abend.
+        </p>
+
+        <div id="goalContainer">
+
+            <div class="goal">
+                <input id="goal1" placeholder="🎯 Fokus Ziel 1">
+            </div>
+
+            <div class="goal">
+                <input id="goal2" placeholder="🎯 Fokus Ziel 2">
+            </div>
+
+            <div class="goal">
+                <input id="goal3" placeholder="🎯 Fokus Ziel 3">
+            </div>
+
+        </div>
+
+        <button id="startButton">
+            Abendroutine beginnen
+        </button>
+
+    </div>
+
 </div>
 
-<div class="small">
-Aktuelle Streak
-</div>
-
-<h1>Reflekt</h1>
-
-<div class="subtitle">
-Minimalistische Selbstreflexion.
-Jeden Abend.
-</div>
-
-<div class="goal">
-<input placeholder="🎯 Fokus Ziel 1">
-</div>
-
-<div class="goal">
-<input placeholder="🎯 Fokus Ziel 2">
-</div>
-
-<div class="goal">
-<input placeholder="🎯 Fokus Ziel 3">
-</div>
-
-<br>
-
-<button id="startButton">
-🌙 Abendroutine beginnen
-</button>
-
-</div>
-
-<script>
-
-document.getElementById("startButton").onclick=function(){
-
-document.querySelector(".card").innerHTML=`
-const ja = document.getElementById("ja");
-const nein = document.getElementById("nein");
-const weiter = document.getElementById("weiter");
-
-let antwort = null;
-
-// Weiter erstmal deaktivieren
-weiter.disabled = true;
-weiter.style.opacity = "0.4";
-
-// JA
-ja.onclick = function(){
-
-antwort = true;
-
-ja.style.background = "#CFEFD8";
-ja.style.color = "#111";
-
-nein.style.background = "white";
-nein.style.color = "black";
-
-weiter.disabled = false;
-weiter.style.opacity = "1";
-
-}
-
-// NEIN
-nein.onclick = function(){
-
-antwort = false;
-
-nein.style.background = "#E8D8E8";
-nein.style.color = "#111";
-
-ja.style.background = "white";
-ja.style.color = "black";
-
-weiter.disabled = false;
-weiter.style.opacity = "1";
-
-}
-<div class="questionCounter">
-1 / 6
-</div>
-
-<h2>
-Hatte ich heute einen schönen Moment?
-</h2>
-
-<button id="ja">
-Ja
-</button>
-
-<br><br>
-
-<button id="nein">
-Nein
-</button>
-
-<br><br>
-
-<textarea placeholder="(freiwillig)"></textarea>
-
-<br><br>
-
-<button id="weiter">
-Weiter →
-</button>
-
-`;
-
-};
-
-</script>
+<script src="questions.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
