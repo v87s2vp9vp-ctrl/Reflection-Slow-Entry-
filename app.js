@@ -153,10 +153,10 @@ function setupButtons(){
 
     nextButton.addEventListener("click", () => {
 
-        answers[currentQuestion] = {
-            answer: selectedAnswer,
-            note: document.querySelector("textarea").value
-        };
+        answers[currentQuestion] = selectedAnswer;
+
+notes[currentQuestion] =
+document.querySelector("textarea").value;
 
         currentQuestion++;
 
