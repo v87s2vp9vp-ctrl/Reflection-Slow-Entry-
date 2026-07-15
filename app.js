@@ -73,3 +73,101 @@ function showQuestion(){
     setupButtons();
 
 }
+// -------------------------------
+// Buttons aktivieren
+// -------------------------------
+
+function setupButtons(){
+
+    const yesButton = document.querySelector(".yes");
+    const noButton = document.querySelector(".no");
+    const nextButton = document.querySelector(".nextButton");
+
+    let selectedAnswer = null;
+
+    yesButton.addEventListener("click", () => {
+
+        selectedAnswer = true;
+
+        yesButton.classList.add("selected");
+        yesButton.classList.add("yes");
+
+        noButton.classList.remove("selected");
+        noButton.classList.remove("no");
+
+        nextButton.disabled = false;
+
+    });
+
+    noButton.addEventListener("click", () => {
+
+        selectedAnswer = false;
+
+        noButton.classList.add("selected");
+        noButton.classList.add("no");
+
+        yesButton.classList.remove("selected");
+        yesButton.classList.remove("yes");
+
+        nextButton.disabled = false;
+
+    });
+
+    nextButton.addEventListener("click", () => {
+
+        answers[currentQuestion] = {
+            answer: selectedAnswer,
+            note: document.querySelector("textarea").value
+        };
+
+        currentQuestion++;
+
+        if(currentQuestion < questions.length){
+
+            showQuestion();
+
+        }else{
+
+            showFinishScreen();
+
+        }
+
+    });
+
+}
+
+// -------------------------------
+// Abschlussseite
+// -------------------------------
+
+function showFinishScreen(){
+
+    card.innerHTML = `
+
+        <div class="questionCount">
+
+            Fertig
+
+        </div>
+
+        <div class="question">
+
+            Gut gemacht.<br><br>
+
+            Du hast dir heute Zeit für dich genommen.
+
+        </div>
+
+        <button id="backHome">
+
+            Zur Startseite
+
+        </button>
+
+    `;
+
+    document.getElementById("backHome").addEventListener("click", () => {
+        location.reload();
+    });
+
+}
