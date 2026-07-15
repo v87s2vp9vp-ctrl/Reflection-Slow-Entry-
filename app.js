@@ -180,6 +180,16 @@ document.querySelector("textarea").value;
 
 function showFinishScreen(){
 
+    saveReflection({
+
+        date:new Date().toISOString(),
+
+        answers:answers,
+
+        notes:notes
+
+    });
+
     card.innerHTML = `
 
         <div class="questionCount">
